@@ -248,26 +248,27 @@ void getTVaddress()
 	}
 
 }
+
 int main()
 {
 	getTVaddress();
-	
+
 	__main(true);
 
 	char type = '\0';
-	while( PromptForChar( "Try 00x00x00x00x00x00x00 magic data (may have more false positive) ? [y/n]", type ) )
+	while( PromptForChar(" Try 00x00x00x00x00x00x00 magic data (may have more false positive) ? [y/n]", type)  )
+	{
+		if (type == 'y')
 		{
-			if (type == 'y')
-			{
-					__main(false);			
-			}
-			if (type== 'n')
-			{
-					cout << ":-)";
-					return 0;
-			}
+			  __main(false);
 		}
-    return 0;	
+		if (type == 'n')
+		{
+			 cout << ":-)";
+			return 0;			 
+		}
+	}
 
+	return 0;
 
 }
