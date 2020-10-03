@@ -177,7 +177,7 @@ void GetAddressOfData(DWORD pid, const char *data, size_t len, list<int>& entrie
 						}
 					}
 				}
-                p += info.RegionSize;
+				p += info.RegionSize;
             }
 
         }
