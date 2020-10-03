@@ -1,7 +1,8 @@
-//team viewer pass 
+//toolname: teamviewerpass
 // a c++ tool to get password of team viewer
 //tool author: krisna pranav
 //tool author is not responsible for any damage
+//use this tool for legal purpose
 
 //imports
 #include <set>
@@ -46,8 +47,8 @@ string intToHexString(int intValue) {
             << std::setfill ('0') << std::setw(2)
     << std::hex << (int)intValue;
 
-    hexStr= sstream.str();
-    sstream.clear();   
+    hexStr= sstream.str();   
+	sstream.clear();
 
     return hexStr;
 }
