@@ -1,4 +1,7 @@
 //team viewer pass 
+// a c++ tool to get password of team viewer
+//tool author: krisna pranav
+//tool author is not responsible for any damage
 
 //imports
 #include <set>
