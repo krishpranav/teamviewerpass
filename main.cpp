@@ -226,17 +226,18 @@ void __main(bool flag)
 		cout<< "_main binsearch "<< endl;
 		
 }
+
 void getTVaddress()
 {
-	char* appdata = getenv("APPDATA") ;
-	char* tvaddr  = "\\TeamViewer\\MRU\\RemoteSupport\\*.tvc";
+	char* appdata = getenv("APPDATA");
+	char* tvaddr = "\\TeamViewer\\MRU\\RemoteSupport\\*.tvc";
 	char* path = new char[strlen(appdata)+strlen(tvaddr)+1];
 
 	sprintf(path, "%s%s", appdata, tvaddr);
 
 	cout << "Get TV address\n";
 
-	HANDLE hFind;
+	HANDLE hfind;
 	WIN32_FIND_DATA data;
 
 	hFind = FindFirstFile(path, &data);
