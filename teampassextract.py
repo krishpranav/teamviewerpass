@@ -1,5 +1,5 @@
 #!usr/bin/env/python
-
+#python script for extracting teamviewer pass
 import frida           #imports
 import re                      
 
