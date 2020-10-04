@@ -58,7 +58,7 @@ string intToHexString(int intValue) {
 }
 bool PromptForChar( const char* prompt, char& readch )
 {
-    std::string tmp;
+	std::string tmp;
     std::cout << prompt << std::endl;
     if (std::getline(std::cin, tmp))
     {
