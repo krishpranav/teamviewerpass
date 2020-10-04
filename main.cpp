@@ -244,7 +244,7 @@ void getTVaddress()
 
 	sprintf(path, "%s%s", appdata, tvaddr);
 
-	cout << "Get TV address\n";
+	cout << "Get Tv Address\n";
 
 	HANDLE hfind;
 	WIN32_FIND_DATA data;
