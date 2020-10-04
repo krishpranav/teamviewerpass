@@ -10,7 +10,7 @@ print "Attached To Process"
 mems=session.enumerate_ranges(PERMS)
 data_dump=[]
 print "Check %s libs."%(len(mems))
-for mem in mems:
+for mem in mems:	
 	dump =  session.read_bytes(mem.base_address, mem.size)
 	beg=chr(int('00',16))+chr(int('88',16))
 	end=chr(int('00',16))+chr(int('00',16))+chr(int('00',16))
