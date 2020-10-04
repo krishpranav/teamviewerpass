@@ -132,11 +132,11 @@ void binsearch(DWORD pid, const std::list<int>& first, const std::list<int>& sec
         } else {
 				
            	{
-				            try{
+							try{
 								if (*it2-*it1>0)
-                                    readMemory(pid,(char*)(void*)(*it1+2),*it2-*it1-2);
+								readMemory(pid, (char*)(void*)(*it1+2),*it2-*it1-2);
 							}catch (int a){
-                            cout<< "cc"<<endl;
+								cout << "cc"<<endl;
 							}
 			}	
             ++it1;

@@ -1,5 +1,7 @@
-import frida
-import re
+#!usr/bin/env/python
+
+import frida           #imports
+import re                      
 
 PERMS = 'rw-'
 process = "TeamViewer.exe"
