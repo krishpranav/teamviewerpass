@@ -54,7 +54,7 @@ else:
 		if re.match("^[0-9]*$",i) and mag_dump_mask_2.count(i)>=2:
 			if mag_dump_mask_2.index(i)<ind:
 				ind = mag_dump_mask_2.index(i)
-	print "Possible values: "
+	print "Possible Values: "
 	for i in mag_dump_mask_2[ind:]:
 		if mag_dump_mask_2[ind:].count(i) == 1:
 			print i
