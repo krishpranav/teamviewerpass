@@ -150,42 +150,43 @@ void GetAddressOfData(DWORD pid, const char *data, size_t len, list<int>& entrie
 	//list<int>* entries;
 	int count = 0;
     HANDLE process = OpenProcess(PROCESS_VM_READ | PROCESS_QUERY_INFORMATION, FALSE, pid);
-    if(process)
-    {
-        SYSTEM_INFO si;
-        GetSystemInfo(&si);
+	if(process)
+	{
 
-        MEMORY_BASIC_INFORMATION info;
-        std::vector<char> chunk;
-        char* p = 0;
-        while(p < si.lpMaximumApplicationAddress)
-        {
-            if(VirtualQueryEx(process, p, &info, sizeof(info)) == sizeof(info))
-            {
-			  if (info.Type == MEM_PRIVATE && info.State == MEM_COMMIT)
-			  {     
-                    p = (char*)info.BaseAddress;
-                    chuck.resize(info.RegionSize);
-                    SIZE_T bytesRead;
+		SYSTEM_INFO si;
+		GetSystemInfo(&si);
 
-					if(ReadProcessMemory(process, p, &chunk[0], info.RegionSize, &bytesRead))
+		MEMORY_BASIC_INFORMATION info;
+		std::vector<char> chuck;
+		char* p = 0;
+		while(p < si.lpMaximumApplicationAddress)
+		{
+			if(VirtualQueryEx(process, p, &info, sizeof(info)) == sizeof(info))
+			{
+				if(info.Type == MEM_PRIVATE && info.State == MEM_COMMIT)
+				{
+					p = (char*)info.BaseAddress;
+					chuck.resize(info.RegionSize);
+					SIZE_T bytesRead;
+
+					if(ReadProcessMemory(process, p, &chuck[0], info.RegionSize, &bytesRead))
 					{
-
-					   for(size_t i = 0; i < (bytesRead - len); ++i)
-						{							
-								if(memcmp(data, &chunk[i], len) == 0)
-								{
-									entries.push_back((int)(void*)(p+i));
-									count ++;
-								}
+						for(size_t i = 0; i < (bytesRead - len); ++i)
+						{
+							if(memcmp(data, &chuck[i], len) == 0)
+							{
+								entries.push_back((int) (void*)(p+i));
+								cout ++;
+							}
 						}
 					}
+
+					
 				}
 				p += info.RegionSize;
-            }
-
-        }
-    }
+			}
+		}
+	}
 	
 	cout << "return list of address " << intToHexString(count) << endl;
 		
@@ -194,7 +195,7 @@ void GetAddressOfData(DWORD pid, const char *data, size_t len, list<int>& entrie
 
 void __main(bool flag)
 {
-		const char start_magic_data[] = "\x00\x88"; 
+		const char start_magic_data[] = "\x00\x88";
   		char _end_magic_data1[] = "\x00\x00\x00\x20\x00\x00";
 		char _end_magic_data2[] = "\x00\x00\x00\x00\x00\x00";
 		if (flag)
