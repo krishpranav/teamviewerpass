@@ -66,10 +66,11 @@ bool PromptForChar( const char* prompt, char& readch )
         {
             readch = tmp[0];
         }
-        else
-        {
-            readch = '\0';
-        }
+		else
+		{
+			readch = '\0';
+		}
+		
         return true;
     }
     return false;
