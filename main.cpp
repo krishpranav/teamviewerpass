@@ -147,9 +147,8 @@ void binsearch(DWORD pid, const std::list<int>& first, const std::list<int>& sec
 
 void GetAddressOfData(DWORD pid, const char *data, size_t len, list<int>& entries)
 {
-	//list<int>* entries;
 	int count = 0;
-    HANDLE process = OpenProcess(PROCESS_VM_READ | PROCESS_QUERY_INFORMATION, FALSE, pid);
+	HANDLE process = OpenProcess(PROCESS_VM_READ | PROCESS_QUERY_INFORMATION, FALSE, pid);
 	if(process)
 	{
 
