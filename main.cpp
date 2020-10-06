@@ -56,23 +56,22 @@ string intToHexString(int intValue) {
 
     return hexStr;
 }
-bool PromptForChar( const char* prompt, char& readch )
+bool PromptForChar(const char* prompt, char& readch)
 {
 	std::string tmp;
-    std::cout << prompt << std::endl;
+	std::cout << prompt << std::endl;
 	if (std::getline(std::cin, tmp))
 	{
 		if (tmp.length() == 1)
 		{
 			readch = tmp[0];
 		}
-		else
-		{
+		else{
 			readch = '\0'
 		}
 		return true;
 	}
-    return false;
+	return false;
 }
 
 bool readMemory(DWORD pid, char* _p, size_t len)
