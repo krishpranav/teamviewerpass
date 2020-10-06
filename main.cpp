@@ -233,7 +233,6 @@ void __main(bool flag)
 		cout<< "_main binsearch "<< endl;
 		
 }
-
 void getTVaddress()
 {
 	char* appdata = getenv("APPDATA");
@@ -243,18 +242,20 @@ void getTVaddress()
 	sprintf(path, "%s%s", appdata, tvaddr);
 
 	cout << "Get Tv Address\n";
-
+	
 	HANDLE hfind;
 	WIN32_FIND_DATA data;
 
 	hFind = FindFirstFile(path, &data);
-	if (hFind != INVALID_HANDLE_VALUE) {
-	  do {
-		printf("%s\n", data.cFileName);
-	  } while (FindNextFile(hFind, &data));
-	  FindClose(hFind);
+	if (hFind != INVALID_HANDLE_VALUE){
+		do{
+			printf("%s\n", data.cFileName);
+		}while (FindNextFile(hFind, &data));
+		{
+			FindClose(hFind);
+		}
+		
 	}
-
 }
 
 int main(){
