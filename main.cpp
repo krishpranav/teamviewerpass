@@ -60,19 +60,18 @@ bool PromptForChar( const char* prompt, char& readch )
 {
 	std::string tmp;
     std::cout << prompt << std::endl;
-    if (std::getline(std::cin, tmp))
-    {
-        if (tmp.length() == 1)
-        {
-            readch = tmp[0];
-        }
+	if (std::getline(std::cin, tmp))
+	{
+		if (tmp.length() == 1)
+		{
+			readch = tmp[0];
+		}
 		else
 		{
-			readch = '\0';
+			readch = '\0'
 		}
-		
-        return true;
-    }
+		return true;
+	}
     return false;
 }
 
