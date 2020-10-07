@@ -42,18 +42,17 @@ intGetProcId(char* ProcName)
 		CloseHandle( hSnapshot );
 	return pe32.th32ProcessID;
 }
-
-string intToHexString(int intValue) {
+string intToHexString(int intValue){
 	string hexStr;
-    std::stringstream sstream;
-    sstream << "0x"
-            << std::setfill ('0') << std::setw(2)
-    << std::hex << (int)intValue;
+	std::stringstream sstream;
+	sstream << "0x"
+			<< std::setfill ('0') << std::setw(2)
+	<< std::hex << (int )intValue;
 
-    hexStr= sstream.str();   
+	hexStr= sstream.str();
 	sstream.clear();
 
-    return hexStr;
+	return hexStr
 }
 bool PromptForChar(const char* prompt, char& readch)
 {
