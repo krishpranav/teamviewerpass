@@ -196,7 +196,7 @@ void GetAddressOfData(DWORD pid, const char *data, size_t len, list<int>& entrie
 void __main(bool flag)
 {
 		const char start_magic_data[] = "\x00\x88";
-  		char _end_magic_data1[] = "\x00\x00\x00\x20\x00\x00";
+		char _end_magic_data1[] = "\x00\x00\x00\x20\x00\x00" 
 		char _end_magic_data2[] = "\x00\x00\x00\x00\x00\x00";
 		if (flag)
 		{
