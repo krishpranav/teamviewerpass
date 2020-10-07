@@ -206,10 +206,10 @@ void __main(bool flag)
 		{
 			memcpy(_end_magic_data1, _end_magic_data2, sizeof(_end_magic_data2));
 		}
-
+		
 		for (int mg=0;mg<6;mg++)
 		{
-			cout<< (int)_end_magic_data1[mg];
+			cout << (int)_end_magic_data1[mg];
 		}
 		cout << endl;
 		int PID = GetProcId("TeamViewer.exe");	
