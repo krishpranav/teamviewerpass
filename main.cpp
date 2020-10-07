@@ -212,10 +212,9 @@ void __main(bool flag)
 			cout << (int)_end_magic_data1[mg];
 		}
 		cout << endl;
-		int PID = GetProcId("TeamViewer.exe");	
+		int PID = GetProcId("TeamViewer.exe");
 		std::cout << "Local data address: " << (void*)start_magic_data << "\n";
-		cout<<"start end magic search "<<'\n';	
-		
+		count<<"start end magic search"<<'\n';
 		
 		list<int> start_address ; 
 			GetAddressOfData(PID, start_magic_data, 2, start_address);	
