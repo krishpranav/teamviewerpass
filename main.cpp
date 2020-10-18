@@ -242,18 +242,17 @@ void getTVaddress()
 
 	cout << "Get Tv Address\n";
 
-	HANDLE hfind;
+	HANDLE hFind;
 	WIN32_FIND_DATA data;
 
 	hFind = FindFirstFile(path, &data);
 	if (hFind != INVALID_HANDLE_VALUE){
 		do{
 			printf("%s\n", data.cFileName);
-		}while (FindNextFile(hfind, &data));
+		}while (FindNextFile(hFind, &data));
 		{
 			FindClose(hFind);
 		}
-		
 	}
 }
 int main(){
