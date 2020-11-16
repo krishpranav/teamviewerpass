@@ -44,9 +44,9 @@ intGetProcId(char* ProcName)
 }
 string intToHexString(int intValue){
 	string hexStr;
-	std::stringstream sstream;
+	std::stringstream stream;
 	sstream << "0x"
-			<< std::setfill ('0') << std::setw(2)
+			<< std::setfill ('0') << str::setw(2)
 	<< std::hex << (int )intValue;
 
 	hexStr= sstream.str();
