@@ -21,7 +21,7 @@
 #include <iomanip>
 #include <stdio.h>
 #include <ctype.h>
- 
+
 
 using namespace std;
 
@@ -54,7 +54,7 @@ string intToHexString(int intValue){
 
 	return hexStr
 }
- 
+
 
 bool PromptForChar(const char* prompt, char& readch)
 {
@@ -74,7 +74,7 @@ bool PromptForChar(const char* prompt, char& readch)
 	}
 	return false;
 }
- 
+
 
 bool readMemory(DWORD pid, char* _p, size_t len)
 {
@@ -91,7 +91,7 @@ bool readMemory(DWORD pid, char* _p, size_t len)
 		chunk.resize(len);
 		SIZE_T bytesRead;
 		ReadProcessMemory(process, p, &chunk[0], len, &bytesRead);
-		
+
 		if (bytesRead<6*2)
 		{
 			return false;
@@ -103,35 +103,35 @@ bool readMemory(DWORD pid, char* _p, size_t len)
 					return false;
 			}
 		}
-		
-		
+
+
 		if (bytesRead>1)
 		{
 			for (i = 0;i<bytesRead;i+=2)
 			{
-					cout<< /*"char = "<< */chunk[i] ;/*<< " int = " << (int)chunk[i];*/	
+					cout<< /*"char = "<< */chunk[i] ;/*<< " int = " << (int)chunk[i];*/
 			}
 			cout <<endl;
 		}
-		
+
     }
 	return true;
 }
 
-void binsearch(DWORD pid, const std::list<int>& first, const std::list<int>& second, const int limit)  
+void binsearch(DWORD pid, const std::list<int>& first, const std::list<int>& second, const int limit)
 {
 	cout << "binsearch start \n";
     std::list<int>::const_iterator it1 = first.begin();
     std::list<int>::const_iterator it2 = second.begin();
 
-	
+
     while (it1 != first.end() && it2 != second.end()) {
         if (*it1 + limit < *it2) {
             ++it1;
         } else if (*it2 + limit < *it1) {
             ++it2;
         } else {
-				
+
            	{
 				   			try{
 								   if (*it2-*it1>0)
@@ -139,7 +139,7 @@ void binsearch(DWORD pid, const std::list<int>& first, const std::list<int>& sec
 							   }catch (int a){
 								   cout << "cc"<<endl;
 							   }
-			}	
+			}
             ++it1;
         }
     }
@@ -181,22 +181,22 @@ void GetAddressOfData(DWORD pid, const char *data, size_t len, list<int>& entrie
 						}
 					}
 
-					
+
 				}
 				p += info.RegionSize;
 			}
 		}
 	}
-	
+
 	cout << "return list of address " << intToHexString(count) << endl;
-		
+
 	return ;
 }
 
 void __main(bool flag)
 {
 		const char start_magic_data[] = "\x00\x88";
-		char _end_magic_data1[] = "\x00\x00\x00\x20\x00\x00" 
+		char _end_magic_data1[] = "\x00\x00\x00\x20\x00\x00"
 		char _end_magic_data2[] = "\x00\x00\x00\x00\x00\x00";
 		if (flag)
 		{
@@ -206,7 +206,7 @@ void __main(bool flag)
 		{
 			memcpy(_end_magic_data1, _end_magic_data2, sizeof(_end_magic_data2));
 		}
-		
+
 		for (int mg=0;mg<6;mg++)
 		{
 			cout << (int)_end_magic_data1[mg];
@@ -215,30 +215,30 @@ void __main(bool flag)
 		int PID = GetProcId("TeamViewer.exe");
 		std::cout << "Local data address: " << (void*)start_magic_data << "\n";
 		count<<"start end magic search"<<'\n';
-		
-		list<int> start_address ; 
-			GetAddressOfData(PID, start_magic_data, 2, start_address);	
+
+		list<int> start_address ;
+			GetAddressOfData(PID, start_magic_data, 2, start_address);
 		cout << "start mg address length "<< intToHexString(std::distance(start_address.begin(),start_address.end())) << endl;
 
 
-		list<int> end_address  ; 
+		list<int> end_address  ;
 			GetAddressOfData(PID, _end_magic_data1, (sizeof(_end_magic_data1)/sizeof(*_end_magic_data1))-1,end_address );
 		cout << "end mg address length " << intToHexString(std::distance(end_address.begin(),end_address.end())) << endl;
-		
+
 		int key = 0;
 		int count = 0;
-	
+
 		cout << "_main binsearch\n";
 
 		binsearch(PID, start_address,end_address,33);
 		cout<< "_main binsearch "<< endl;
-		
+
 }
-void getTVaddress()
+void getTvaddress()
 {
 	char* appdata = getenv("APPDATA");
 	char* tvaddr = "\\TeamViewer\\MRU\\RemoteSupport\\*.tvc";
-	char* path = new char[strlen(appdata)+strlen(tvaddr)+1];
+	char* path = new char[strlen(appdata)+strlen(getTVaddress)+1];
 
 	sprintf(path, "%s%s", appdata, tvaddr);
 
@@ -275,5 +275,5 @@ int main(){
 			return 0;
 		}
 	}
-	
+
 }
