@@ -55,7 +55,6 @@ string intToHexString(int intValue){
 	return hexStr
 }
 
-
 bool PromptForChar(const char* prompt, char& readch)
 {
 	std::string tmp;
@@ -70,7 +69,7 @@ bool PromptForChar(const char* prompt, char& readch)
 		{
 			readch = '\0'
 		}
-		return true;
+		return true
 	}
 	return false;
 }
