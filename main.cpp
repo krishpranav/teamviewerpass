@@ -257,22 +257,24 @@ void getTvaddress()
 	}
 }
 int main(){
-	getTVaddress();
+	getTvaddress();
 
 	__main(true);
 
-	char type = '\0';
+	char type = '\0'
+
 	while (PromptForChar(" Try 00x00x00x00x00x00x00 magic data (may have more false positive) ? [y/n]", type))
 	{
-		if(type == 'y')
+
+		if (type == 'y')
 		{
 			__main(false);
 		}
 		if (type == 'n')
 		{
+
 			cout << ":-)";
 			return 0;
 		}
 	}
-
 }
