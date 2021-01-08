@@ -187,7 +187,7 @@ void GetAddressOfData(DWORD pid, const char *data, size_t len, list<int>& entrie
 		}
 	}
 
-	cout << "return list of address " << intToHexString(count) << endl;
+	cout << "return list of address" << intToHexString(count) << endl;
 
 	return ;
 }
@@ -256,6 +256,7 @@ void getTvaddress()
 		}
 	}
 }
+
 int main(){
 	getTvaddress();
 
