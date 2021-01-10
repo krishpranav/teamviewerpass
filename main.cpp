@@ -54,10 +54,9 @@ string intToHexString(int intValue){
 
 	return hexStr
 }
-
 bool PromptForChar(const char* prompt, char& readch)
 {
-	std::string tmp;
+	std::string tmp;	
 	std::cout << prompt << std::endl;
 	if (std::getline(std::cin, tmp))
 	{
@@ -70,11 +69,11 @@ bool PromptForChar(const char* prompt, char& readch)
 			readch = '\0'
 		}
 		return true
+
 	}
-	return false;
+	return false
+
 }
-
-
 bool readMemory(DWORD pid, char* _p, size_t len)
 {
 	HANDLE process = OpenProcess(PROCESS_VM_READ | PROCESS_QUERY_INFORMATION, FALSE, pid);
