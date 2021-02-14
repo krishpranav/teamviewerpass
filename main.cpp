@@ -3,10 +3,7 @@
 //tool author: krisna pranav
 //tool author is not responsible for any damage
 //use this tool for legal purpose
-//-----------------------------------------------
-//                   tested system
-//-----------------------------------------------
-// mac and linux
+
 
 //imports
 #include <set>
@@ -278,5 +275,4 @@ int main(){
 		}
 	}
 }
-
 
